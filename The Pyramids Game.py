@@ -7,10 +7,11 @@ import pygame
 # don't use OOP
 # for coding use only: conditions, loops, functions, strings, lists and arrays
 
+
 pygame.font.init()
 
 
-# global vars and constants
+###         global vars and constants           ###
 display_HEIGHT = 500
 display_WIDTH = 500
 CELL_SIZE = 40
@@ -23,7 +24,7 @@ top_left_y = (display_HEIGHT-matrix_height)//2
 
 
 
-# define colors
+###         define colors           ###
 PINK = (255, 192, 203)
 YELLOW = (255, 255, 0)
 BLUE = (0, 0, 255)
@@ -41,9 +42,8 @@ pygame.display.set_caption('The Pyramids Game')
 nitzanim_logo = pygame.image.load("Nitzanim_logo.png")
 
 
-# functions
 
-#draw functions
+###         draw functions          ###
 
 def draw_display(matrix):
     display.fill(WHITE)
@@ -131,7 +131,9 @@ def draw_pyramid_frame():
                                                  (top_left_x + (j-i) * CELL_SIZE, top_left_y + (4 - i) * CELL_SIZE)), 2)
     pygame.display.update()
 
-# game handling functions
+    
+    
+###         game handling functions          ###
 
 def create_matrix():
       matrix = [[0 for _ in range(9)] for _ in range(5)]
@@ -173,7 +175,8 @@ def within_pyramid(row, column):
 
 
 
-# game rules:
+
+###         game rules          ###
 # 1. blue can't be on borders of pyramid. if blue cell at border -> randomize new color for that cell
 # 2. pink can't be around blue cell except diagonalized - > randomize  new color for the !!pink!! cell
 # 3. if row has are more than 4 yellow cells -> randomize new colors for whole row
@@ -278,7 +281,8 @@ def recolor_row(matrix, row):
         matrix[row][column] = randomize_color()
 
 
-# main menu for game control flow
+###         main menu for game control flow         ###
+
 def main():
     clock = pygame.time.Clock()
     matrix = create_matrix()
@@ -327,7 +331,7 @@ def main():
 
 
 
-# start game
+###         start game          ###
 if __name__ == "__main__":
     main()
 
